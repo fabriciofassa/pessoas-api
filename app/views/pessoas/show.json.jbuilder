@@ -1,0 +1,1 @@
+json.call @pessoa, :id,:nome, :tipo_entidade

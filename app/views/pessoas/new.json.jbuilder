@@ -2,4 +2,6 @@
 #     json.array! Pessoa.tipo_entidades do |chave, valor|
 #         json.id chave
 #         json.label "FORMATADO #{chave}"
+
+ #alterar semana q vem
 # end

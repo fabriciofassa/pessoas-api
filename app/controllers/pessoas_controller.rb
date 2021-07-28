@@ -10,9 +10,9 @@ class PessoasController < ApplicationController
     end
 
     def create
-      pessoa = Pessoa.new(pessoa_params)
+      @pessoa = Pessoa.new(pessoa_params)
       if pessoa.save
-        render json: {id: pessoa.id}, status: 201
+        render :show, status: 201
       else
         render json: {error: pessoa.errors.full_messages}, status: 422   
       end
@@ -37,13 +37,9 @@ class PessoasController < ApplicationController
       end
     end
 
-    def new
-      
-    end
-
     private
     def pessoa_params
-        params.permit(:nome, :tipo_entidade)
+        params.permit(:nome, :tipo_entidade, contatos_attributes: [:id, :tipo, :valor, :_destroy])
     end
 
 end 

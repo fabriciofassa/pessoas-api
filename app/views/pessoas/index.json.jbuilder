@@ -1,1 +1,1 @@
-json.array! @pessoas, :id,:nome, :tipo_entidade
+json.array! @pessoas, :id, :nome, :tipo_entidade

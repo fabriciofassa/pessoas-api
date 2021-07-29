@@ -10,22 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_28_172335) do
+ActiveRecord::Schema.define(version: 2021_07_28_172339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contatos", force: :cascade do |t|
-    t.integer "tipo", default: 0, null: false
-    t.string "valor", null: false
-    t.integer "pessoa_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "nomes", force: :cascade do |t|
-    t.string "nome", null: false
-    t.string "tipo_entidade", default: "0", null: false
+    t.integer "tipo"
+    t.string "valor"
+    t.integer "pessoa_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,5 +30,4 @@ ActiveRecord::Schema.define(version: 2021_07_28_172335) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "contatos", "pessoas"
 end

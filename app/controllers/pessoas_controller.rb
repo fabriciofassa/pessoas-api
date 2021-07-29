@@ -1,4 +1,5 @@
 class PessoasController < ApplicationController
+    # Fabricio
     def index
       @pessoas =  Pessoa.all
     end

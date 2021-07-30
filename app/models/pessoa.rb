@@ -1,4 +1,5 @@
 class Pessoa < ApplicationRecord
+   # Fabricio
     enum tipo_entidade: {fisica: 0,juridica: 1}, _prefix: true
 
     validates :nome, presence: true

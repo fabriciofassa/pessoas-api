@@ -66,14 +66,12 @@ class PessoasController < ApplicationController
     # DELETE: Apagar o registro
     def destroy
         pessoa = Pessoa.find(params[:id])
-        # Passar parametros
-        pessoa.attributes = pessoa_params
         if pessoa.destroy
-            # Responder que salvou
+            # Responder que deletou
             render json: { id: pessoa.id }, status: 201
         else 
            # render json: { error: "Registro Excluído" }, status: 422   
-           render json: { error: pessoa.errors.full_messages }, status: 404  
+           render json: { error: pessoa.errors.full_messages }, status: 422 
         end          
     end
 

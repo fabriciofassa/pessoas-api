@@ -5,11 +5,12 @@ class PessoasController < ApplicationController
     # CRUD++ => LIST, NEW, EDIT
 
     # GET: Listar Todos os Registros
-    def index
-        @pessoas = Pessoa.all
-    end
+    def index 
+        #@pessoas = Pessoa.all.limit(25).order(:id_pessoa)
+        #@pessoas = Pessoa.all.page(params[:page])
 
-    
+        @pessoas = FiltrarPessoas.filtrar(params)
+    end    
 
     # GET: Exibir detalhes de UM ÚNICO registro
     def show

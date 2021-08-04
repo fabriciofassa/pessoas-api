@@ -1,21 +1,11 @@
 class Pessoa < ApplicationRecord
-   # Fabricio
-    enum tipo_entidade: {fisica: 0,juridica: 1}, _prefix: true
+   self.table_name = 'sis_pessoa'
+   self.primary_key = 'id_pessoa' 
 
-    validates :nome, presence: true
-    validates :tipo_entidade, presence: true
-
-    #  Pertence a, tem um, tem vários
-    has_many :contatos, dependent: :restrict_with_error
-    accepts_nested_attributes_for :contatos, allow_destroy: true
-
-    # Método de classe
-       # Pessoa.tipo_entidade_fisica
-       # Pessoa.tipo_entidade_jurica
-
-    # Método de Instancia
-       # tipo_entidade_fisica? e tipo_entidade_fisica!
-       # tipo_entidade_juridica ? e tipo_entidade_juridica!
-       
-       
+   has_many :historicos, foreign_key: :id_pessoa
+   
+   # Pessoa.fisica => Pessoa
+   default_scope { where(id_tp_entidade: [1,2]) }
+   scope :fisica, -> { where(id_tp_entidade: 2) }
+   scope :nome_razao, -> { where(id_tp_entidade: 1) }
 end

@@ -1,0 +1,1 @@
+json.call(@pessoas_fisicas, :id_pessoa, :nome_razao, :id_tp_entidade, :email, :email_alternativo)
